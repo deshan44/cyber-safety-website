@@ -1,0 +1,398 @@
+<!--
+    	Cyber Safety for University Students - Contact
+        Author: Deshan Weerasinghe
+        Student ID: 10687014
+-->
+
+
+
+
+<!DOCTYPE html>
+
+<!--
+    Page Purpose:
+    Educational content about risks of using public Wi-Fi networks
+    on campus and protection strategies using VPNs.
+
+    Content Sections:
+
+    1. Hidden Dangers - Overview of public network vulnerabilities
+    2. Common Attacks - MITM, Evil Twin, Packet Sniffing, Session Hijacking
+    3. High-Risk Locations - Campus areas requiring extra caution
+    4. VPN Protection - How VPNs work and recommended free options
+    5. Safe Browsing Practices - Eight protection strategies
+    6. HTTPS Understanding - Browser security indicators
+    7. Educational Video - Visual demonstration of Wi-Fi risks
+    8. Safety Checklist - Pre-connection security steps
+
+    Research Sources:
+    - UK NCSC public Wi-Fi guidance
+    - ProtonVPN security documentation
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about public Wi-Fi security risks on campus. Understand man-in-the-middle attacks and how to protect your data with VPNs and safe browsing practices.">
+    <meta name="keywords" content="public WiFi security, campus WiFi, man-in-the-middle attack, VPN, secure browsing, network security">
+    <meta name="author" content="Deshan Weerasinghe">
+    <title>Public Wi-Fi Risks - Cyber Safety for University Students</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Cyber Safety for University Students</h1>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="phishing.html">Phishing Attacks</a>
+            <a href="passwords.html">Password Security</a>
+            <a href="wifi.html" class="current">Public Wi-Fi Risks</a>
+            <a href="social-engineering.html">Social Engineering</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2>Public Wi-Fi Risks on Campus</h2>
+
+        <!-- Overview -->
+        <section>
+            <h3>The Hidden Dangers of Free Wi-Fi</h3>
+
+            <p>
+                University campuses offer free Wi-Fi everywhere - libraries, cafes, lecture
+                halls, and dormitories. While convenient, these networks often lack proper
+                security, making them hunting grounds for cybercriminals looking to intercept
+                your data.
+            </p>
+
+            <div class="warning-box">
+                <h4>Public Wi-Fi = Public Risk</h4>
+                <p>
+                    When you connect to public Wi-Fi, you're sharing a network with everyone
+                    else connected. Without proper encryption, attackers on the same network
+                    can potentially see your traffic, including passwords and personal
+                    information.
+                </p>
+            </div>
+
+            <figure>
+                <img src="images/wifi-hero.jpg"
+                     alt="Coffee shop interior with people using laptops on public WiFi network"
+                     width="900"
+                     height="500">
+                <figcaption>
+                    Public Wi-Fi in cafes, libraries, and campus spaces can expose your data to attackers
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- Common attacks -->
+        <section>
+            <h3>Common Attacks on Public Wi-Fi</h3>
+
+            <p>
+                Cybercriminals use several techniques to exploit public network vulnerabilities:
+            </p>
+
+            <div class="card-grid">
+                <article>
+                    <h4>Man-in-the-Middle (MITM)</h4>
+                    <p>
+                        Attackers intercept communications between your device and the
+                        router, allowing them to eavesdrop on your traffic, steal login
+                        credentials, and inject malicious content.
+                    </p>
+                </article>
+
+                <article>
+                    <h4>Evil Twin Networks</h4>
+                    <p>
+                        Attackers create fake Wi-Fi hotspots with names like "University_WiFi_Free"
+                        that look legitimate. When you connect, all your traffic flows
+                        through their device.
+                    </p>
+                </article>
+
+                <article>
+                    <h4>Packet Sniffing</h4>
+                    <p>
+                        Using freely available software, attackers capture and analyze
+                        network packets to extract unencrypted data like emails, messages,
+                        and login information.
+                    </p>
+                </article>
+
+                <article>
+                    <h4>Session Hijacking</h4>
+                    <p>
+                        Attackers steal your session cookies to take over your logged-in
+                        accounts on websites, gaining access without needing your password.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- High-risk locations -->
+        <section>
+            <h3>High-Risk Locations on Campus</h3>
+
+            <p>
+                Be especially cautious when using Wi-Fi in these common student locations:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>University Libraries</strong> - High traffic, open networks,
+                    and extended sessions make libraries prime targets for attackers
+                </li>
+                <li>
+                    <strong>Campus Cafes and Food Courts</strong> - Casual environments
+                    where people let their guard down while checking emails or banking
+                </li>
+                <li>
+                    <strong>Student Accommodation/Dorms</strong> - Shared networks with
+                    many unknown users, often with weak security configurations
+                </li>
+                <li>
+                    <strong>Lecture Halls and Study Spaces</strong> - Large numbers of
+                    connected devices create opportunities for network-based attacks
+                </li>
+                <li>
+                    <strong>Off-Campus Coffee Shops</strong> - Often have no security
+                    at all, with anyone able to connect and monitor traffic
+                </li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Remember: "Secure" Doesn't Mean Safe</h4>
+                <p>
+                    Even if a Wi-Fi network requires a password to connect, this only
+                    controls who can join the network. It doesn't prevent other connected
+                    users from attempting to intercept your traffic.
+                </p>
+            </div>
+        </section>
+
+        <!-- VPNs -->
+        <section>
+            <h3>VPNs: Your Shield on Public Networks</h3>
+
+            <p>
+                A Virtual Private Network (VPN) creates an encrypted tunnel between your
+                device and a secure server. Even if someone intercepts your traffic, they
+                can't read it.
+            </p>
+
+            <h4>How VPNs Protect You</h4>
+            <ul>
+                <li>
+                    <strong>Encryption</strong> - All data leaving your device is encrypted,
+                    making it unreadable to attackers on the same network
+                </li>
+                <li>
+                    <strong>IP Masking</strong> - Your real IP address is hidden, replaced
+                    with the VPN server's address
+                </li>
+                <li>
+                    <strong>Secure Tunnel</strong> - Creates a protected pathway through
+                    the public network to the VPN server
+                </li>
+            </ul>
+
+            <h4>Recommended Free VPN Options</h4>
+
+            <div class="card-grid">
+                <article>
+                    <h4>ProtonVPN Free</h4>
+                    <p>
+                        No data limits, no ads. Servers in 3 countries on the free tier.
+                        Made by the creators of ProtonMail with strong privacy focus.[web:4]
+                    </p>
+                    <a href="https://protonvpn.com" target="_blank" rel="noopener">
+                        Get ProtonVPN
+                    </a>
+                </article>
+
+            </div>
+
+            <div class="success-box">
+                <h4>Always Enable VPN on Public Wi-Fi</h4>
+                <p>
+                    Make it a habit: before you access any sensitive information (email,
+                    banking, social media) on public Wi-Fi, turn on your VPN first.[web:13]
+                    It takes seconds and significantly increases your security.
+                </p>
+            </div>
+        </section>
+
+        <!-- Protection strategies -->
+        <section>
+            <h3>Staying Safe on Public Wi-Fi</h3>
+
+            <p>
+                Follow these practices to protect yourself on public networks:
+            </p>
+
+            <ol>
+                <li>
+                    <strong>Use a VPN</strong> - This is the single most effective
+                    protection on public networks. Enable it before connecting.
+                </li>
+                <li>
+                    <strong>Verify network names</strong> - Ask staff for the correct
+                    Wi-Fi name before connecting. Attackers create similar-sounding
+                    fake networks.
+                </li>
+                <li>
+                    <strong>Look for HTTPS</strong> - Only enter sensitive information
+                    on websites showing the padlock icon and "https://" in the address.[web:6]
+                </li>
+                <li>
+                    <strong>Disable auto-connect</strong> - Turn off automatic Wi-Fi
+                    connection on your devices to avoid connecting to rogue networks.
+                </li>
+                <li>
+                    <strong>Avoid sensitive activities</strong> - Don't access banking
+                    or enter passwords on public Wi-Fi unless using a VPN.
+                </li>
+                <li>
+                    <strong>Use mobile data for sensitive tasks</strong> - Your phone's
+                    cellular connection is more secure than public Wi-Fi.
+                </li>
+                <li>
+                    <strong>Enable firewall</strong> - Ensure your device's firewall is
+                    active to block unauthorized connection attempts.
+                </li>
+                <li>
+                    <strong>Forget networks after use</strong> - Remove saved public
+                    networks so your device doesn't auto-connect later.
+                </li>
+            </ol>
+        </section>
+
+        <!-- HTTPS -->
+        <section>
+            <h3>Understanding HTTPS</h3>
+
+            <p>
+                HTTPS (Hypertext Transfer Protocol Secure) encrypts data between your
+                browser and the website.[web:6]
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Padlock icon</strong> in the browser address bar
+                </li>
+                <li>
+                    <strong>URL starts with "https://"</strong> (not just "http://")
+                </li>
+                <li>
+                    <strong>No security warnings</strong> from your browser
+                </li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>Never Enter Passwords on Non-HTTPS Sites</h4>
+                <p>
+                    If a login page doesn't use HTTPS, any credentials you enter can
+                    be intercepted in plain text.[web:6]
+                </p>
+            </div>
+
+            <h4>Enable HTTPS-Only Mode</h4>
+            <p>
+                Modern browsers offer HTTPS-only mode, which blocks or warns about
+                non-secure connections.[web:6]
+            </p>
+        </section>
+
+        <!-- Video -->
+        <section>
+            <h3>Watch: Public Wi-Fi Security Explained</h3>
+
+            <p>
+                This video demonstrates the risks of public Wi-Fi and shows how attackers
+                can intercept your data.
+            </p>
+
+            <div class="video-container">
+                <iframe
+                    class="video-frame"
+                    src="https://youtube.com/embed/XcghUy-8VRA?rel=0&modestbranding=1&playsinline=1"
+                    title="Public Wi-Fi Security Risks and How to Stay Safe"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Checklist -->
+        <section>
+            <h3>Public Wi-Fi Safety Checklist</h3>
+
+            <p>Before using public Wi-Fi, ensure you've taken these precautions:</p>
+
+            <ol>
+                <li>Install a VPN (ProtonVPN free or university VPN)</li>
+                <li>Turn on VPN before connecting to public network</li>
+                <li>Verify network name with staff</li>
+                <li>Enable HTTPS-only mode in your browser</li>
+                <li>Disable auto-connect for public networks</li>
+                <li>Keep firewall enabled</li>
+                <li>Avoid banking/sensitive activities without VPN</li>
+            </ol>
+        </section>
+
+        <!-- Related topics -->
+        <section>
+            <h3>Related Topics</h3>
+
+            <ul>
+                <li>
+                    <a href="passwords.html">Password Security</a> - Even on secure
+                    networks, weak passwords are a vulnerability
+                </li>
+                <li>
+                    <a href="phishing.html">Phishing Attacks</a> - Public Wi-Fi attacks
+                    are sometimes combined with phishing
+                </li>
+                <li>
+                    <a href="resources.html">Resources</a> - Free VPN options and
+                    security tools
+                </li>
+            </ul>
+
+            <p>
+                <strong>External resource:</strong>
+                <a href="https://www.ncsc.gov.uk/guidance/using-public-wifi" target="_blank" rel="noopener">
+                    UK National Cyber Security Centre - Using Public Wi-Fi Safely
+                </a>
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cyber Safety for University Students. Educational resource.</p>
+        <p><a href="mailto:contact@cybersafety-uni.edu">contact@cybersafety-uni.edu</a></p>
+
+        <nav aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="phishing.html">Phishing Attacks</a>
+            <a href="passwords.html">Password Security</a>
+            <a href="wifi.html">Public Wi-Fi Risks</a>
+            <a href="social-engineering.html">Social Engineering</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </footer>
+
+</body>
+</html>
