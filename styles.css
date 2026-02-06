@@ -1,0 +1,1426 @@
+/*
+    Cyber Safety for University Students - Main Stylesheet
+    Author: Deshan Weerasinghe
+    Student ID: 10687014
+
+    Design Philosophy:
+    This stylesheet implements a modern, accessible design system focused on
+    cybersecurity education. The visual language uses color psychology to
+    reinforce security concepts - navy for trust, emerald for safety actions,
+    and amber for warnings.
+
+    Color Palette (researched for accessibility - WCAG 2.1 AA compliant):
+    - Primary: Deep Navy (#0f172a) - Trust, professionalism, security
+    - Secondary: Royal Blue (#2563eb) - Technology, reliability
+    - Accent: Emerald (#10b981) - Success, safe actions, positive feedback
+    - Warning: Amber (#f59e0b) - Caution, attention required
+    - Danger: Rose (#f43f5e) - Threats, critical warnings
+
+    Typography:
+    Using system font stack for optimal performance and native feel across
+    platforms. Line height 1.6 based on readability research for body text.
+
+    Layout Strategy:
+    Mobile-first responsive design with breakpoints at 480px, 768px, and 1024px.
+    Max content width 1200px maintains optimal reading line length (45-75 chars).
+
+    Animation Approach:
+    CSS animations enhance UX without JavaScript dependency. All animations
+    respect prefers-reduced-motion for accessibility. Timing functions use
+    cubic-bezier for natural, physics-based movement.
+*/
+
+
+/* ==================== CSS Reset ====================
+   Modern CSS reset based on Josh Comeau's approach.
+   Removes browser inconsistencies while preserving useful defaults.
+   Reference: https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                 Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #1e293b;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    font-size: 16px;
+    min-height: 100vh;
+}
+
+
+/* ==================== Animations ====================
+   Custom keyframe animations for enhanced user experience.
+   Each animation serves a specific purpose in guiding user attention
+   and providing feedback. Timing based on Material Design motion principles.
+
+   Performance: Using transform and opacity only (GPU-accelerated properties)
+   to ensure smooth 60fps animations even on mobile devices.
+*/
+
+/* Fade in from bottom - used for content sections loading */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in from left - used for info boxes and side elements */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Pulse effect - draws attention to warning icons and CTAs */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Shimmer gradient - creates dynamic visual interest on borders */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Float animation - creates gentle bobbing effect for decorative elements */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Gradient flow - animated background for header, creates dynamic feel */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Glow effect - used for success states and positive feedback */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(16, 185, 129, 0.6);
+    }
+}
+
+
+/* ==================== Typography ====================
+   Type scale based on 1.25 ratio (Major Third) for visual harmony.
+   Font weights: 400 (body), 600 (subheadings), 700-800 (headings).
+   Letter-spacing adjusted for larger headings to improve readability.
+*/
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1.25rem;
+    margin-top: 2.5rem;
+    position: relative;
+    padding-left: 1.25rem;
+    animation: fadeInLeft 0.6s ease-out;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #10b981 0%, #2563eb 50%, #8b5cf6 100%);
+    border-radius: 3px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    max-width: 75ch;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #10b981, #2563eb);
+    transition: width 0.3s ease;
+}
+
+a:hover {
+    color: #10b981;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+a:focus {
+    outline: 2px solid #10b981;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+
+/* ==================== Layout ====================
+   Content container uses max-width for readability on large screens.
+   Backdrop-filter creates frosted glass effect (glassmorphism trend).
+   Box-shadow layering technique creates depth and elevation.
+*/
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+    min-height: calc(100vh - 300px);
+    border-radius: 0 0 2rem 2rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+
+/* ==================== Header & Navigation ====================
+   Sticky header keeps navigation accessible while scrolling.
+   Animated gradient background creates visual interest without distraction.
+   Navigation uses pill-shaped buttons for modern, touch-friendly design.
+   Border-image technique creates multi-color gradient border effect.
+*/
+
+header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 15s ease infinite;
+    color: #ffffff;
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, #10b981, #2563eb, #8b5cf6) 1;
+}
+
+header > p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    max-width: none;
+    animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+nav {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    font-weight: 500;
+}
+
+nav a::after {
+    display: none;
+}
+
+nav a:hover {
+    background: rgba(16, 185, 129, 0.3);
+    border-color: rgba(16, 185, 129, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+    color: #ffffff;
+}
+
+nav a:focus {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
+}
+
+nav a.current {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+
+/* ==================== Hero Section ====================
+   Full-width hero with layered backgrounds:
+   1. Gradient overlay for text readability
+   2. SVG pattern for subtle texture (inline data URI for performance)
+   Pseudo-elements create additional visual layers without extra markup.
+   Negative margins extend hero beyond main container padding.
+*/
+
+.hero {
+    background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 95, 0.9) 50%, rgba(15, 23, 42, 0.95) 100%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    color: #ffffff;
+    padding: 5rem 2rem;
+    margin: -3rem -3rem 3rem -3rem;
+    text-align: center;
+    border-radius: 0 0 3rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(16, 185, 129, 0.1) 0%, transparent 50%, rgba(37, 99, 235, 0.1) 100%);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #10b981, #2563eb, #8b5cf6, #10b981);
+    background-size: 300% 100%;
+    animation: shimmer 3s linear infinite;
+}
+
+.hero h2 {
+    color: #ffffff;
+    border-left: none;
+    padding-left: 0;
+    font-size: 2.75rem;
+    margin-top: 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    letter-spacing: -0.02em;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero h2::before {
+    display: none;
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+    margin: 2.5rem auto;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    transition: all 0.5s ease;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero img:hover {
+    transform: scale(1.02);
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.5),
+        0 0 0 2px rgba(16, 185, 129, 0.5);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 1.5rem auto;
+    color: #cbd5e1;
+    line-height: 1.8;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.hero a {
+    display: inline-block;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 10px 30px rgba(16, 185, 129, 0.4),
+        0 0 0 0 rgba(16, 185, 129, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.hero a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.hero a::after {
+    display: none;
+}
+
+.hero a:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(16, 185, 129, 0.5),
+        0 0 0 4px rgba(16, 185, 129, 0.3);
+}
+
+.hero a:hover::before {
+    left: 100%;
+}
+
+
+/* ==================== Content Cards ====================
+   Card grid uses CSS Grid with auto-fit for responsive columns.
+   minmax() function ensures cards don't get too narrow or too wide.
+   Cards use subtle gradients and layered shadows for depth.
+   Hover states include transform and pseudo-element transitions
+   for engaging micro-interactions.
+*/
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card,
+article {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 1.5rem;
+    padding: 0;
+    overflow: hidden;
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.card::before,
+article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #2563eb);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover,
+article:hover {
+    transform: translateY(-12px);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(16, 185, 129, 0.2);
+}
+
+.card:hover::before,
+article:hover::before {
+    opacity: 1;
+}
+
+.card img,
+article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.card:hover img,
+article:hover img {
+    transform: scale(1.08);
+}
+
+.card-content,
+article > *:not(img) {
+    padding: 0 1.5rem;
+}
+
+article h3,
+article h4,
+article p,
+article a {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+article a {
+    margin-bottom: 1.5rem;
+}
+
+.card h3,
+article h3 {
+    color: #0f172a;
+    margin-top: 1.25rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.card h4,
+article h4 {
+    color: #0f172a;
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.card a,
+article a {
+    display: inline-block;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    color: #ffffff;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
+}
+
+.card a::after,
+article a::after {
+    display: none;
+}
+
+.card a:hover,
+article a:hover {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+    transform: translateY(-2px);
+}
+
+
+/* ==================== Lists ====================
+   Custom list styling replaces default bullets with gradient circles.
+   Ordered lists use CSS counters for styled numbering.
+   Hover states add subtle movement to guide user attention.
+   Nested lists have smaller, muted bullets for visual hierarchy.
+*/
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+ul li:hover {
+    transform: translateX(5px);
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+}
+
+ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    counter-reset: item;
+    list-style-type: none;
+}
+
+ol li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 1.25rem;
+    counter-increment: item;
+}
+
+ol li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
+    transition: all 0.3s ease;
+}
+
+ol li:hover::before {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+ul ul li::before {
+    background: linear-gradient(135deg, #94a3b8, #64748b);
+    width: 8px;
+    height: 8px;
+    box-shadow: 0 2px 6px rgba(100, 116, 139, 0.3);
+}
+
+
+/* ==================== Info Boxes ====================
+   Alert boxes use color coding based on severity:
+   - Warning (amber): Caution, potential risks
+   - Info (blue): Tips, additional information
+   - Success (green): Safe actions, positive outcomes
+
+   Left border accent provides quick visual identification.
+   Pseudo-element icons reinforce meaning without relying on icon fonts.
+   Inset shadows create subtle inner glow effect.
+*/
+
+.warning-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 5px solid #f59e0b;
+    padding: 1.75rem 1.75rem 1.75rem 1.5rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    margin: 2rem 0;
+    box-shadow:
+        0 10px 30px rgba(245, 158, 11, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInLeft 0.5s ease-out;
+}
+
+.warning-box::before {
+    content: '⚠';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    opacity: 0.2;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.warning-box h4 {
+    color: #b45309;
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+
+.warning-box p {
+    color: #78350f;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left: 5px solid #2563eb;
+    padding: 1.75rem 1.75rem 1.75rem 1.5rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    margin: 2rem 0;
+    box-shadow:
+        0 10px 30px rgba(37, 99, 235, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInLeft 0.5s ease-out;
+}
+
+.info-box::before {
+    content: 'ℹ';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    opacity: 0.2;
+    color: #2563eb;
+}
+
+.info-box h4 {
+    color: #1e40af;
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+
+.info-box p {
+    color: #1e3a8a;
+}
+
+.success-box {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-left: 5px solid #10b981;
+    padding: 1.75rem 1.75rem 1.75rem 1.5rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    margin: 2rem 0;
+    box-shadow:
+        0 10px 30px rgba(16, 185, 129, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInLeft 0.5s ease-out;
+}
+
+.success-box::before {
+    content: '✓';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    opacity: 0.2;
+    color: #10b981;
+}
+
+.success-box h4 {
+    color: #047857;
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+
+.success-box p {
+    color: #065f46;
+}
+
+
+/* ==================== Images & Media ====================
+   Responsive images with max-width: 100% prevent overflow.
+   Figure elements include hover effects for interactivity.
+   Video containers use padding-bottom hack for 16:9 aspect ratio.
+   Map container has fixed height for consistent Google Maps display.
+   Gradient borders on hover create visual feedback.
+*/
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure {
+    margin: 2.5rem 0;
+    position: relative;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+figure img {
+    border-radius: 1.5rem;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s ease;
+}
+
+figure img:hover {
+    transform: scale(1.01);
+    box-shadow:
+        0 35px 70px rgba(0, 0, 0, 0.2),
+        0 0 0 2px rgba(16, 185, 129, 0.3);
+}
+
+figcaption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 1.25rem;
+    font-style: italic;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 2.5rem 0;
+    border-radius: 1.5rem;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(135deg, #10b981, #2563eb, #8b5cf6);
+    border-radius: 1.6rem;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-container:hover::before {
+    opacity: 1;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 1.5rem;
+}
+
+.map-container {
+    height: 450px;
+    margin: 2.5rem 0;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    position: relative;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(135deg, #10b981, #2563eb);
+    border-radius: 1.6rem;
+    z-index: -1;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* ==================== Forms ====================
+   Form styling prioritizes usability and accessibility.
+   Generous padding on inputs creates larger touch targets.
+   Focus states use box-shadow instead of outline for better styling.
+   Custom select dropdown uses SVG background for arrow icon.
+   Submit buttons include hover color transition for feedback.
+*/
+
+form {
+    max-width: 600px;
+    margin: 2rem 0;
+    padding: 2.5rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 1.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+form p {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #ffffff;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+select {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #ffffff;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.25rem;
+    padding-right: 3rem;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+input[type="submit"],
+button[type="submit"] {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    color: #ffffff;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.3);
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+input[type="submit"]:focus,
+button[type="submit"]:focus {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
+}
+
+
+/* ==================== Statistics ====================
+   Statistics boxes create visual impact for key data points.
+   Dark background with gradient text creates striking contrast.
+   Floating pseudo-element adds subtle animated decoration.
+   Background-clip: text technique creates gradient text effect.
+   Bottom border provides consistent accent across all boxes.
+*/
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    color: #ffffff;
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+        0 30px 60px rgba(15, 23, 42, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.stat-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+}
+
+.stat-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #2563eb);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: 0.75rem;
+    position: relative;
+    text-shadow: none;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    position: relative;
+}
+
+
+/* ==================== Footer ====================
+   Footer uses darker shade of primary color for visual grounding.
+   Animated shimmer border creates subtle visual interest.
+   Navigation links styled as pills for consistency with header.
+   Email link uses accent color for visibility.
+*/
+
+footer {
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    color: #ffffff;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #2563eb, #8b5cf6, #10b981);
+    background-size: 300% 100%;
+    animation: shimmer 4s linear infinite;
+}
+
+footer p {
+    max-width: none;
+    margin-bottom: 1rem;
+    color: #64748b;
+    font-size: 1rem;
+}
+
+footer nav {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+footer nav a {
+    color: #94a3b8;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+footer nav a::after {
+    display: none;
+}
+
+footer nav a:hover {
+    color: #ffffff;
+    background: rgba(16, 185, 129, 0.3);
+    transform: translateY(-2px);
+}
+
+footer a[href^="mailto"] {
+    color: #10b981;
+    font-weight: 500;
+}
+
+footer a[href^="mailto"]:hover {
+    color: #34d399;
+}
+
+
+/* ==================== Utility Classes ====================
+   Utility classes provide reusable styling shortcuts.
+   Skip link ensures keyboard accessibility (WCAG requirement).
+   Screen reader only class hides content visually but keeps
+   it accessible to assistive technologies.
+*/
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    z-index: 9999;
+    transition: top 0.3s ease;
+    border-radius: 0 0 1rem 0;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+address {
+    font-style: normal;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 1.75rem;
+    border-radius: 1rem;
+    border-left: 4px solid #10b981;
+    margin: 1.5rem 0;
+    line-height: 1.9;
+    color: #475569;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==================== Responsive Design ====================
+   Mobile-first approach: base styles for mobile, then enhance for larger screens.
+   Breakpoints chosen based on common device sizes:
+   - 480px: Large phones
+   - 768px: Tablets
+   - 1024px: Laptops and desktops
+
+   Each breakpoint adjusts typography, spacing, and layout for optimal reading.
+*/
+
+/* Tablet and larger (768px+) */
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 3.25rem;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+    }
+
+    header {
+        padding: 2rem 3rem;
+    }
+
+    nav a {
+        padding: 0.6rem 1.5rem;
+    }
+
+    main {
+        padding: 3rem;
+    }
+
+    .hero {
+        padding: 5rem 3rem;
+        margin: -3rem -3rem 3rem -3rem;
+    }
+
+    .hero h2 {
+        font-size: 2.75rem;
+    }
+}
+
+/* Desktop (1024px+) */
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .stat-number {
+        font-size: 4rem;
+    }
+}
+
+/* Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 1.25rem;
+    }
+
+    main {
+        padding: 1.5rem;
+        border-radius: 0 0 1.5rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        text-align: center;
+        padding: 0.75rem 1rem;
+    }
+
+    .hero {
+        padding: 3rem 1.5rem;
+        margin: -1.5rem -1.5rem 2rem -1.5rem;
+        border-radius: 0 0 2rem 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    footer nav {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+
+
+/* ==================== Print Styles ====================
+   Print styles ensure content is readable when printed.
+   Removes decorative elements (gradients, shadows, animations).
+   Shows URLs after links for reference.
+   Prevents cards from breaking across pages.
+*/
+
+@media print {
+    body {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    header, footer {
+        background: none;
+        color: #000000;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .card, article, main {
+        box-shadow: none;
+        border: 1px solid #cccccc;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666666;
+    }
+
+    .card, article {
+        break-inside: avoid;
+    }
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

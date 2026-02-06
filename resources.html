@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!--
+    Cyber Safety for University Students - Resources
+    Author: Deshan Weerasinghe
+    Student ID: 10687014
+
+    Page Purpose:
+    Curated collection of free cybersecurity tools and educational
+    resources for university students.
+
+    Content Sections:
+    1. Government Resources - ACSC, NCSC, CISA official guidance
+    2. Free Security Tools:
+       - Password Managers (Bitwarden, Proton Pass)
+       - VPN Services (ProtonVPN, University VPN)
+       - Browser Extensions (uBlock Origin, HTTPS Everywhere)
+       - 2FA Apps (Aegis, Authy)
+    3. Educational Resources - Cybrary, HIBP, Google Phishing Quiz
+    4. Quick Reference Checklists - Daily habits, account setup, link safety
+    5. Reporting Channels - Where to report cyber incidents
+
+    Design Notes:
+    Uses card grid layout for easy scanning of multiple resources.
+    External links open in new tabs with noopener for security.
+-->
+<html lang="en">
+
+<head>
+    <!-- Character encoding for proper text rendering -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free cybersecurity resources for university students. Government guides, free security tools, password managers, VPNs, and educational materials.">
+    <meta name="keywords" content="cybersecurity resources, free security tools, password managers, VPN, security training, student resources">
+    <meta name="author" content="Deshan Weerasinghe">
+    <title>Resources - Cyber Safety for University Students</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Cyber Safety for University Students</h1>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="phishing.html">Phishing Attacks</a>
+            <a href="passwords.html">Password Security</a>
+            <a href="wifi.html">Public Wi-Fi Risks</a>
+            <a href="social-engineering.html">Social Engineering</a>
+            <a href="resources.html" class="current">Resources</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2>Cybersecurity Resources for Students</h2>
+
+        <figure>
+            <img src="images/resources-hero.jpg"
+                 alt="Laptop on desk with security tools and resources displayed"
+                 width="1100" height="400">
+        </figure>
+
+        <p>
+            This page contains carefully curated resources to help you improve your
+            online security. All tools and services listed are either free or have
+            substantial free tiers suitable for students.
+        </p>
+
+        <!-- Government resources -->
+        <section>
+            <h3>Government and Official Resources</h3>
+
+            <p>
+                These authoritative sources provide reliable, up-to-date cybersecurity
+                guidance from government agencies and international organizations:
+            </p>
+
+            <div class="card-grid">
+                <article>
+                    <img src="images/resource-acsc.jpg"
+                         alt="Global digital network representing government cybersecurity"
+                         width="400" height="200">
+                    <h4>Australian Cyber Security Centre (ACSC)</h4>
+                    <p>
+                        Australia's lead agency for cybersecurity. Provides alerts, advice,
+                        and resources for individuals and organizations. Essential for
+                        Australian students.
+                    </p>
+                    <a href="https://www.cyber.gov.au" target="_blank" rel="noopener">
+                        Visit ACSC
+                    </a>
+                </article>
+
+                <article>
+                    <img src="images/resource-ncsc.jpg"
+                         alt="Server room with blue lighting representing cyber infrastructure"
+                         width="400" height="200">
+                    <h4>UK National Cyber Security Centre</h4>
+                    <p>
+                        Excellent Cyber Aware campaign with practical advice for
+                        individuals. Known for accessible, plain-language guidance
+                        including the three random words password method.
+                    </p>
+                    <a href="https://www.ncsc.gov.uk/cyberaware/home" target="_blank" rel="noopener">
+                        Visit NCSC Cyber Aware
+                    </a>
+                </article>
+
+                <article>
+                    <img src="images/resource-safety.jpg"
+                         alt="Person using laptop safely representing online safety education"
+                         width="400" height="200">
+                    <h4>StaySafeOnline</h4>
+                    <p>
+                        National Cybersecurity Alliance's consumer education site.
+                        Provides resources for individuals, families, and educators
+                        on cybersecurity awareness.
+                    </p>
+                    <a href="https://www.staysafeonline.org" target="_blank" rel="noopener">
+                        Visit StaySafeOnline
+                    </a>
+                </article>
+
+                <article>
+                    <img src="images/resource-cisa.jpg"
+                         alt="Code on computer screen representing cybersecurity defense"
+                         width="400" height="200">
+                    <h4>CISA (US Cybersecurity Agency)</h4>
+                    <p>
+                        America's cyber defense agency. Offers tips, resources, and
+                        alerts about current cyber threats. Valuable for understanding
+                        global threat landscape.
+                    </p>
+                    <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener">
+                        Visit CISA
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Free security tools -->
+        <section>
+            <h3>Free Security Tools</h3>
+
+            <p>
+                These tools provide essential security features at no cost. All have
+                been vetted for privacy and security.
+            </p>
+
+            <h4>Password Managers</h4>
+            <div class="card-grid">
+                <article>
+                    <h4>Bitwarden</h4>
+                    <p>
+                        Open-source password manager with unlimited passwords on free
+                        tier. Syncs across all devices. Excellent security track record
+                        with regular third-party audits.
+                    </p>
+                    <a href="https://bitwarden.com" target="_blank" rel="noopener">
+                        Get Bitwarden (Free)
+                    </a>
+                </article>
+
+                <article>
+                    <h4>Proton Pass</h4>
+                    <p>
+                        From the creators of ProtonMail. End-to-end encrypted, unlimited
+                        passwords on free tier. Integrates with Proton ecosystem for
+                        comprehensive privacy.
+                    </p>
+                    <a href="https://proton.me/pass" target="_blank" rel="noopener">
+                        Get Proton Pass (Free)
+                    </a>
+                </article>
+            </div>
+
+            <h4>VPN Services</h4>
+            <div class="card-grid">
+                <article>
+                    <h4>ProtonVPN Free</h4>
+                    <p>
+                        No data limits, no ads, no selling your data. Servers in 3
+                        countries on free tier. Strong privacy policy and based in
+                        Switzerland.
+                    </p>
+                    <a href="https://protonvpn.com" target="_blank" rel="noopener">
+                        Get ProtonVPN (Free)
+                    </a>
+                </article>
+
+                <article>
+                    <h4>University VPN</h4>
+                    <p>
+                        Many universities provide free VPN access to students. Check
+                        with your IT department. Often the best choice for accessing
+                        academic resources securely.
+                    </p>
+                    <a href="contact.html">Contact Your IT Department</a>
+                </article>
+            </div>
+
+            <h4>Browser Security Extensions</h4>
+            <div class="card-grid">
+                <article>
+                    <h4>uBlock Origin</h4>
+                    <p>
+                        Free, open-source ad blocker that also blocks malicious scripts
+                        and trackers. Light on system resources. Available for all major
+                        browsers.
+                    </p>
+                    <a href="https://ublockorigin.com" target="_blank" rel="noopener">
+                        Get uBlock Origin
+                    </a>
+                </article>
+
+                <article>
+                    <h4>HTTPS Everywhere</h4>
+                    <p>
+                        Automatically uses HTTPS connections when available. Now built
+                        into most modern browsers, but still useful for older systems.
+                        Made by EFF.
+                    </p>
+                    <a href="https://www.eff.org/https-everywhere" target="_blank" rel="noopener">
+                        Get HTTPS Everywhere
+                    </a>
+                </article>
+            </div>
+
+            <h4>Two-Factor Authentication Apps</h4>
+            <div class="card-grid">
+                <article>
+                    <h4>Aegis Authenticator (Android)</h4>
+                    <p>
+                        Free, open-source 2FA app with encrypted backups. Superior to
+                        Google Authenticator for backup options. Android only.
+                    </p>
+                    <a href="https://getaegis.app" target="_blank" rel="noopener">
+                        Get Aegis (Android)
+                    </a>
+                </article>
+
+                <article>
+                    <h4>Authy</h4>
+                    <p>
+                        Cross-platform 2FA app with encrypted cloud backup. Available on
+                        iOS, Android, and desktop. Helps recover codes if you lose your
+                        phone.
+                    </p>
+                    <a href="https://authy.com" target="_blank" rel="noopener">
+                        Get Authy
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Educational resources -->
+        <section>
+            <h3>Educational Resources and Training</h3>
+
+            <p>
+                These resources offer free cybersecurity education, from beginner
+                awareness to advanced technical skills:
+            </p>
+
+            <div class="card-grid">
+                <article>
+                    <h4>Cybrary</h4>
+                    <p>
+                        Free cybersecurity training platform with courses from beginner
+                        to advanced. Includes career paths, certifications prep, and
+                        hands-on labs.
+                    </p>
+                    <a href="https://www.cybrary.it" target="_blank" rel="noopener">
+                        Visit Cybrary
+                    </a>
+                </article>
+
+                <article>
+                    <h4>Have I Been Pwned</h4>
+                    <p>
+                        Check if your email has been compromised in data breaches. Free
+                        service by security researcher Troy Hunt. Also offers breach
+                        notification alerts.
+                    </p>
+                    <a href="https://haveibeenpwned.com" target="_blank" rel="noopener">
+                        Check Your Email
+                    </a>
+                </article>
+
+                <article>
+                    <h4>Google Phishing Quiz</h4>
+                    <p>
+                        Interactive quiz that tests your ability to identify phishing
+                        emails. Great practice for recognizing real attacks. Takes about
+                        10 minutes.
+                    </p>
+                    <a href="https://phishingquiz.withgoogle.com" target="_blank" rel="noopener">
+                        Take the Quiz
+                    </a>
+                </article>
+
+                <article>
+                    <h4>Open Security Training</h4>
+                    <p>
+                        Free, high-quality cybersecurity courses for those wanting deeper
+                        technical knowledge. Covers topics from malware analysis to
+                        exploit development.
+                    </p>
+                    <a href="https://opensecuritytraining.info" target="_blank" rel="noopener">
+                        Start Learning
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Quick reference checklists -->
+        <section>
+            <h3>Quick Reference Checklists</h3>
+
+            <p>
+                Use these checklists as quick reminders for maintaining good security
+                practices. Save or print them for easy reference.
+            </p>
+
+            <div class="info-box">
+                <h4>Daily Security Habits</h4>
+                <ol>
+                    <li>Lock your devices when stepping away (Win+L or Cmd+Ctrl+Q)</li>
+                    <li>Verify sender before clicking links in emails</li>
+                    <li>Use VPN when on public Wi-Fi</li>
+                    <li>Log out of accounts on shared computers</li>
+                    <li>Check for software updates</li>
+                </ol>
+            </div>
+
+            <div class="info-box">
+                <h4>Account Security Setup</h4>
+                <ol>
+                    <li>Install password manager (Bitwarden or Proton Pass)</li>
+                    <li>Create strong master password (three random words method)</li>
+                    <li>Enable 2FA on university email</li>
+                    <li>Enable 2FA on personal email</li>
+                    <li>Enable 2FA on banking/financial accounts</li>
+                    <li>Check haveibeenpwned.com for breached accounts</li>
+                    <li>Change any reused or weak passwords</li>
+                </ol>
+            </div>
+
+            <div class="info-box">
+                <h4>Before Clicking Any Link</h4>
+                <ol>
+                    <li>Hover to see the actual URL</li>
+                    <li>Check for spelling/domain tricks (microsft.com, goog1e.com)</li>
+                    <li>Verify the sender is legitimate</li>
+                    <li>Consider: Was I expecting this message?</li>
+                    <li>When in doubt, navigate directly to the website instead</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Reporting resources -->
+        <section>
+            <h3>Where to Report Cyber Incidents</h3>
+
+            <p>
+                If you experience a cyber attack or encounter suspicious activity,
+                report it to the appropriate authorities:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>University IT Security:</strong> Your first point of contact
+                    for academic account issues and campus-related threats. Check your
+                    university website for their security team contact.
+                </li>
+                <li>
+                    <strong>
+                        <a href="https://www.cyber.gov.au/report" target="_blank" rel="noopener">
+                            ReportCyber (Australia)
+                        </a>
+                    </strong> - Report cybercrime to the Australian Cyber Security Centre
+                </li>
+                <li>
+                    <strong>
+                        <a href="https://www.scamwatch.gov.au" target="_blank" rel="noopener">
+                            Scamwatch (Australia)
+                        </a>
+                    </strong> - Report scams to the ACCC
+                </li>
+                <li>
+                    <strong>
+                        <a href="https://www.actionfraud.police.uk" target="_blank" rel="noopener">
+                            Action Fraud (UK)
+                        </a>
+                    </strong> - UK's national reporting centre for fraud and cybercrime
+                </li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>Act Quickly If Compromised</h4>
+                <p>
+                    If you believe your accounts have been compromised, immediately:
+                    change your passwords, enable 2FA, check for unauthorized activity,
+                    and report to your university IT department.
+                </p>
+            </div>
+        </section>
+
+        <!-- Site navigation -->
+        <section>
+            <h3>Explore Our Guides</h3>
+
+            <p>
+                Learn more about specific cybersecurity topics:
+            </p>
+
+            <ul>
+                <li><a href="phishing.html">Phishing Attacks</a> - Recognize and avoid fraudulent emails</li>
+                <li><a href="passwords.html">Password Security</a> - Create and manage strong passwords</li>
+                <li><a href="wifi.html">Public Wi-Fi Risks</a> - Stay safe on campus networks</li>
+                <li><a href="social-engineering.html">Social Engineering</a> - Understand manipulation tactics</li>
+                <li><a href="contact.html">Contact Us</a> - Report incidents or ask questions</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cyber Safety for University Students. Educational resource.</p>
+        <p><a href="mailto:contact@cybersafety-uni.edu">contact@cybersafety-uni.edu</a></p>
+
+        <nav aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="phishing.html">Phishing Attacks</a>
+            <a href="passwords.html">Password Security</a>
+            <a href="wifi.html">Public Wi-Fi Risks</a>
+            <a href="social-engineering.html">Social Engineering</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </footer>
+
+</body>
+</html>

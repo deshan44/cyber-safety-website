@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--
+    Cyber Safety for University Students - Contact
+    Author: Deshan Weerasinghe
+    Student ID: 10687014
+
+    Page Purpose:
+    Contact page with form submission and incident reporting guidance.
+    Includes Google Maps embed showing ECU Joondalup Campus location.
+
+    Content Sections:
+    1. Contact Form - Message submission with subject categories
+    2. Incident Reporting - Step-by-step response guide for attacks
+    3. Location Section - Google Maps embed (mashup requirement)
+    4. Contact Details - Email, hours, emergency support info
+    5. FAQ Section - Common questions about reporting and support
+
+    Technical Features:
+    - HTML form with mailto: action (static site solution)
+    - Google Maps iframe embed with lazy loading
+    - Form validation using HTML5 required attribute
+    - Accessible form labels and autocomplete attributes
+
+    Mashup Integration:
+    Google Maps API embed showing ECU Joondalup Campus location
+    for in-person assistance availability.
+-->
+<html lang="en">
+
+<head>
+    <!-- Character encoding for proper text rendering -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact the Cyber Safety team. Report security incidents, provide feedback, or ask questions about online safety for university students.">
+    <meta name="keywords" content="contact, cyber safety, report incident, security help, student support">
+    <meta name="author" content="Deshan Weerasinghe">
+    <title>Contact - Cyber Safety for University Students</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Cyber Safety for University Students</h1>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="phishing.html">Phishing Attacks</a>
+            <a href="passwords.html">Password Security</a>
+            <a href="wifi.html">Public Wi-Fi Risks</a>
+            <a href="social-engineering.html">Social Engineering</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html" class="current">Contact</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2>Contact and Report Incidents</h2>
+
+        <figure>
+            <img src="images/contact-hero.jpg"
+                 alt="Person typing on laptop keyboard, representing reaching out for help"
+                 width="1100" height="400">
+        </figure>
+
+        <p>
+            Have questions about cybersecurity? Encountered a suspicious email or
+            potential attack? We're here to help. Use the form below to get in touch
+            or report security concerns.
+        </p>
+
+        <!-- Contact Form Section
+             Uses mailto: action as server-side processing not available for static site
+             Form includes proper labels, autocomplete, and validation -->
+        <section>
+            <h3>Send Us a Message</h3>
+
+            <p>
+                Use this form to ask questions, provide feedback, or share information
+                about security threats you've encountered.
+            </p>
+
+            <!-- Form uses mailto: protocol for static site compatibility
+                 Opens user's email client with pre-filled content -->
+            <form action="mailto:contact@cybersafety-uni.edu" method="post" enctype="text/plain">
+                <p>
+                    <label for="name">Your Name (optional):</label>
+                    <input type="text"
+                           id="name"
+                           name="name"
+                           placeholder="Enter your name"
+                           autocomplete="name">
+                </p>
+
+                <p>
+                    <label for="email">Your Email (optional):</label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           placeholder="your.email@university.edu"
+                           autocomplete="email">
+                </p>
+
+                <p>
+                    <label for="subject">Subject:</label>
+                    <select id="subject" name="subject">
+                        <option value="general">General Question</option>
+                        <option value="phishing">Report Phishing Email</option>
+                        <option value="incident">Report Security Incident</option>
+                        <option value="feedback">Website Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="message">Your Message:</label>
+                    <textarea id="message"
+                              name="message"
+                              rows="6"
+                              cols="50"
+                              placeholder="Describe your question or the incident you want to report..."
+                              required></textarea>
+                </p>
+
+                <p>
+                    <input type="submit" value="Send Message">
+                </p>
+            </form>
+
+            <div class="info-box">
+                <h4>Note About This Form</h4>
+                <p>
+                    This is a static website. Clicking "Send Message" will open your
+                    email client with a pre-filled message. If you prefer, you can
+                    email us directly at
+                    <a href="mailto:contact@cybersafety-uni.edu">contact@cybersafety-uni.edu</a>.
+                </p>
+            </div>
+        </section>
+
+        <!-- Report incident -->
+        <section>
+            <h3>Report a Security Incident</h3>
+
+            <p>
+                If you've experienced a cyberattack or believe your accounts have been
+                compromised, take these immediate steps:
+            </p>
+
+            <ol>
+                <li>
+                    <strong>Change your passwords immediately</strong> - Start with your
+                    email and any accounts that may be affected.
+                </li>
+                <li>
+                    <strong>Enable 2FA</strong> - Add two-factor authentication to prevent
+                    further unauthorized access.
+                </li>
+                <li>
+                    <strong>Contact your university IT department</strong> - They can help
+                    secure your academic accounts and may need to take action to protect
+                    university systems.
+                </li>
+                <li>
+                    <strong>Document everything</strong> - Save screenshots, emails, and
+                    any other evidence of the attack.
+                </li>
+                <li>
+                    <strong>Report to authorities</strong> - For serious incidents, file
+                    a report with the appropriate agency (see links below).
+                </li>
+            </ol>
+
+            <div class="warning-box">
+                <h4>For Active/Urgent Incidents</h4>
+                <p>
+                    If you're experiencing an active attack or have already lost access
+                    to accounts, contact your university IT department immediately by
+                    phone rather than email. They can provide faster assistance and may
+                    be able to help recover compromised accounts.
+                </p>
+            </div>
+
+            <h4>Official Reporting Channels</h4>
+            <ul>
+                <li>
+                    <a href="https://www.cyber.gov.au/report" target="_blank" rel="noopener">
+                        ReportCyber (Australia)
+                    </a> - Report cybercrime to the Australian Cyber Security Centre
+                </li>
+                <li>
+                    <a href="https://www.scamwatch.gov.au" target="_blank" rel="noopener">
+                        Scamwatch (Australia)
+                    </a> - Report scams to the ACCC
+                </li>
+                <li>
+                    <a href="https://www.idcare.org" target="_blank" rel="noopener">
+                        IDCARE
+                    </a> - Australia's national identity and cyber support service
+                </li>
+            </ul>
+        </section>
+
+        <!-- Location Section with Google Maps Mashup
+             This section fulfills the assignment requirement for external API integration -->
+        <section>
+            <h3>Visit Us</h3>
+
+            <p>
+                The Cyber Safety Education Centre is located at Edith Cowan University,
+                Joondalup Campus. Our team is available to meet with students who need
+                in-person assistance with security concerns.
+            </p>
+
+            <!-- MASHUP: Google Maps API Embed
+                 Displays interactive map of ECU Joondalup Campus
+                 Features:
+                 - loading="lazy" for performance optimization
+                 - title attribute for accessibility
+                 - allowfullscreen for user experience
+                 - referrerpolicy for privacy -->
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.7876540566!2d115.74933951516493!3d-31.751289481288715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32a56e21d7b5a1%3A0xf030e5cf23dfab32!2sEdith%20Cowan%20University%20-%20Joondalup%20Campus!5e0!3m2!1sen!2sau!4v1706789012345!5m2!1sen!2sau"
+                    title="Map showing location of Edith Cowan University Joondalup Campus"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <h4>Address</h4>
+            <address>
+                Cyber Safety Education Centre<br>
+                Edith Cowan University<br>
+                270 Joondalup Drive<br>
+                Joondalup, WA 6027<br>
+                Australia
+            </address>
+
+            <h4>Contact Details</h4>
+            <ul>
+                <li>
+                    <strong>Email:</strong>
+                    <a href="mailto:contact@cybersafety-uni.edu">contact@cybersafety-uni.edu</a>
+                </li>
+                <li>
+                    <strong>General Inquiries:</strong>
+                    Available Monday-Friday, 9am-5pm AWST
+                </li>
+                <li>
+                    <strong>Emergency IT Support:</strong>
+                    Contact your university IT helpdesk for urgent issues
+                </li>
+            </ul>
+        </section>
+
+        <!-- FAQ -->
+        <section>
+            <h3>Frequently Asked Questions</h3>
+
+            <h4>Can I report anonymously?</h4>
+            <p>
+                Yes. The name and email fields in our form are optional. You can also
+                report to government agencies anonymously through their official channels.
+            </p>
+
+            <h4>What should I include when reporting a phishing email?</h4>
+            <p>
+                Include the sender's email address, subject line, and either forward
+                the email or attach a screenshot. Note any links in the email (don't
+                click them!) and describe what made you suspicious.
+            </p>
+
+            <h4>How quickly will I get a response?</h4>
+            <p>
+                We aim to respond to general inquiries within 2-3 business days. For
+                urgent security incidents, please contact your university IT department
+                directly for immediate assistance.
+            </p>
+
+            <h4>Can you help me recover a hacked account?</h4>
+            <p>
+                We can provide guidance, but account recovery typically needs to go
+                through the service provider (Google, Microsoft, etc.) or your
+                university IT department for academic accounts.
+            </p>
+        </section>
+
+        <!-- Quick links -->
+        <section>
+            <h3>Learn More</h3>
+
+            <p>
+                Visit our educational pages to learn how to protect yourself:
+            </p>
+
+            <ul>
+                <li><a href="phishing.html">Phishing Attacks</a> - Recognize fraudulent emails</li>
+                <li><a href="passwords.html">Password Security</a> - Create strong passwords</li>
+                <li><a href="wifi.html">Public Wi-Fi Risks</a> - Stay safe on networks</li>
+                <li><a href="social-engineering.html">Social Engineering</a> - Spot manipulation</li>
+                <li><a href="resources.html">Resources</a> - Free security tools and guides</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cyber Safety for University Students. Educational resource.</p>
+        <p><a href="mailto:contact@cybersafety-uni.edu">contact@cybersafety-uni.edu</a></p>
+
+        <nav aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="phishing.html">Phishing Attacks</a>
+            <a href="passwords.html">Password Security</a>
+            <a href="wifi.html">Public Wi-Fi Risks</a>
+            <a href="social-engineering.html">Social Engineering</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </footer>
+
+</body>
+</html>
