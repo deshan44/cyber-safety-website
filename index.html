@@ -52,17 +52,24 @@
 
     <!-- Site header with branding and primary navigation -->
     <header>
-        <h1>Cyber Safety for University Students</h1>
-        <p>Protect Your Digital Life During Your Academic Journey</p>
+        <div class="brand">
+            <h1>Cyber Safety for University Students</h1>
+            <p>Protect Your Digital Life During Your Academic Journey</p>
+        </div>
 
         <!-- Navigation with aria-label for screen reader accessibility -->
         <nav aria-label="Main navigation">
             <!-- Current page indicated with class for visual styling -->
             <a href="index.html" class="current">Home</a>
-            <a href="phishing.html">Phishing Attacks</a>
-            <a href="passwords.html">Password Security</a>
-            <a href="wifi.html">Public Wi-Fi Risks</a>
-            <a href="social-engineering.html">Social Engineering</a>
+            <details class="topic-select">
+                <summary>Topics</summary>
+                <div class="topic-options" role="list">
+                    <a href="phishing.html">Phishing Attacks</a>
+                    <a href="passwords.html">Password Security</a>
+                    <a href="wifi.html">Public Wi-Fi Risks</a>
+                    <a href="social-engineering.html">Social Engineering</a>
+                </div>
+            </details>
             <a href="resources.html">Resources</a>
             <a href="contact.html">Contact</a>
         </nav>
